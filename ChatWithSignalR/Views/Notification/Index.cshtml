@@ -20,7 +20,7 @@
 
     // Hub Connection Settings
     let transportType = signalR.TransportType.WebSockets;
-    let http = new signalR.HttpConnection(`http://${document.location.host}/notifications`, { transport: transportType });
+    let http = new signalR.HttpConnection(`http://${document.location.host}/notifications`);
     let connection = new signalR.HubConnection(http);
 
     connection.start();
