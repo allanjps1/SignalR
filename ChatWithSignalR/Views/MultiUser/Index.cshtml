@@ -20,6 +20,7 @@
                 </div>
                 <br />
                 <input type="submit" id="send" value="Send" class="btn btn-primary" />
+                <input type="button" id="enter" value="Enter" class="btn btn-primary" />
             </form>
 
             <br />
@@ -38,7 +39,6 @@
                 <li class="list-group-item"> @Html.Raw(item.ConnectionID) </li>
             }
         </ul>
-
     </div>
 </div>
 
@@ -46,21 +46,41 @@
 <script src="~/lib/signalR/signalr-client-1.0.0-alpha2-final.js"></script>
 
 <script>
+
     // Connection Settings with Hub
     let transportType = signalR.TransportType.WebSockets;
     // Route Hub name defined in Startup
     let http = new signalR.HttpConnection(`multiUsers`, { transport: transportType });
     let connection = new signalR.HubConnection(http);
 
-    // Start the connection with Hub
-    connection.start();
-
+    
     // Every time when SendMessage is executed do something
     // data = object send to back-end
     // WHen the method SendMessage is invoked do something
     connection.on('SendMessage', (data) => {
         postMessage(data);
     });
+
+    // Every time when SendMessage is executed do something
+    // data = object send to back-end
+    // WHen the method SendMessage is invoked do something
+    connection.on('UsersList', (data) => {
+        console.log(data);
+    });
+
+
+    $("#enter").click( function () {
+
+        console.log();
+
+        // Start the connection with Hub
+//        connection.start().catch(err => alert(err));
+
+        connection.start({ jsonp: true })
+            .done(function () { console.log('Now connected, connection ID=' + connection.id); });
+
+        //connection.invoke('UsersList');
+    })
 
     document.getElementById('frm-send-message').addEventListener('submit', event => {
 

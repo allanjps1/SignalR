@@ -33,6 +33,11 @@ namespace SignalRSample.Hubs
             await Clients.All.InvokeAsync("SendMessage", mensagem);
         }
 
-        
+        public async Task UsersList()
+        {
+            List<User> users = _userService.GetConnectedUsers();
+
+            await Clients.All.InvokeAsync("UsersList", users);
+        }
     }
 }
