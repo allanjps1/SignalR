@@ -1,0 +1,57 @@
+﻿<div id="chat">
+    <form id="frm-send-message" action="#">
+        <label for="nomeUsuario">Apelido:</label>
+        <input type="text" id="nomeUsuario" />
+        <label for="message">Message:</label>
+        <input type="text" id="message" />
+        <input type="submit" id="send" value="Send" />
+    </form>
+    <div id="messages">
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/signalR/signalr-client-1.0.0-alpha2-final.js"></script>
+
+<script>
+    // Connection Settings with Hub
+    let transportType = signalR.TransportType.WebSockets;
+    // Route Hub name defined in Startup
+    let http = new signalR.HttpConnection(`chatHub`, { transport: transportType });
+    let connection = new signalR.HubConnection(http);
+
+    // Start the connection with Hub
+    connection.start();
+
+    // Every time when SendMessage is executed do something
+    // data = object send to back-end
+    // WHen the method SendMessage is invoked do something
+    connection.on('SendMessage', (data) => {
+        postMessage(data);
+    });
+
+    document.getElementById('frm-send-message').addEventListener('submit', event => {
+
+        // Recupera os dados da tela
+        let mensagem = {
+            NomeUsuario: $("#nomeUsuario").val(),
+            MensagemTexto: $("#message").val()
+        }
+
+        // Call Hub method to send data
+        connection.invoke('SendMessage', mensagem);
+
+        //Reset message input
+        document.getElementById('message').value = '';
+
+        // Prevent Default form submit method
+        event.preventDefault();
+    });
+
+    function postMessage(data) {
+        var divMessages = $("#messages");
+
+        divMessages.append(`<p> <b>${data.nomeUsuario}</b> said: ${data.mensagemTexto} </p> `);
+    };
+
+</script>

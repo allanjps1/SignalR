@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Notificacoes";
+}
+
+<button type="button" class="btn btn-primary">
+    Notifications <span class="badge badge-light" id="notificationCount">4</span>
+</button>
+
+<button type="button" class="btn btn-primary" id="btnAddNotification"> New Notification </button>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/signalR/signalr-client-1.0.0-alpha2-final.js"></script>
+
+<script type="text/javascript">
+
+    // Hub Connection Settings
+    let transportType = signalR.TransportType.WebSockets;
+    let http = new signalR.HttpConnection(`http://${document.location.host}/notifications`, { transport: transportType });
+    let connection = new signalR.HubConnection(http);
+
+    connection.start();
+
+    $("#btnAddNotification").bind("click", function () {
+        $.get("/Notification/GetNotificationsCount");
+    })
+
+    // When TotalOfNotifications is invoked on server side execute something
+    connection.on("TotalOfNotifications", (data) => {
+        updateTotalNotifications(data);
+    })
+
+    function updateTotalNotifications(total) {
+        $("#notificationCount").text(total);
+    }
+</script>

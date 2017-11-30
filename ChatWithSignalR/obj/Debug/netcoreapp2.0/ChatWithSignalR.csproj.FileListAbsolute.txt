@@ -1,0 +1,11 @@
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\ChatWithSignalR.deps.json
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\ChatWithSignalR.runtimeconfig.json
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\ChatWithSignalR.runtimeconfig.dev.json
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\ChatWithSignalR.dll
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\ChatWithSignalR.pdb
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\ChatWithSignalR.csprojResolveAssemblyReference.cache
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\ChatWithSignalR.csproj.CoreCompileInputs.cache
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\ChatWithSignalR.AssemblyInfoInputs.cache
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\ChatWithSignalR.AssemblyInfo.cs
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\ChatWithSignalR.dll
+C:\Projetos\ChatWithSignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\ChatWithSignalR.pdb
