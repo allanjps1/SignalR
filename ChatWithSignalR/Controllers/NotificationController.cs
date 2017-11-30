@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ChatWithSignalR.Hubs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using ChatWithSignalR.Hubs;
+using System;
 
 namespace ChatWithSignalR.Controllers
 {
@@ -21,12 +18,15 @@ namespace ChatWithSignalR.Controllers
         {
             return View();
         }
-        
+
         [HttpGet]
         public IActionResult GetNotificationsCount()
         {
+
+            var randomValue = new Random().Next(100);
+
             // Invocation of cliente side monitoring and return a value 
-            _hubContext.Clients.All.InvokeAsync("TotalOfNotifications", 5);
+            _hubContext.Clients.All.InvokeAsync("TotalOfNotifications", randomValue);
 
             return Ok();
         }
