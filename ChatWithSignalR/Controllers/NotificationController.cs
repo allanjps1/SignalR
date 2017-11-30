@@ -1,9 +1,9 @@
-﻿using ChatWithSignalR.Hubs;
+﻿using SignalRSample.Hubs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using System;
 
-namespace ChatWithSignalR.Controllers
+namespace SignalRSample.Controllers
 {
     public class NotificationController : Controller
     {

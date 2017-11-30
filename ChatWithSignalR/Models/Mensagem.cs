@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ChatWithSignalR.Models
+namespace SignalRSample.Models
 {
     public class Mensagem
     {

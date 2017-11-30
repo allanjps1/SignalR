@@ -5353,6 +5353,29 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "Application.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Dominio.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Application.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Application.Services.dll": {}
+        }
+      },
+      "Dominio.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Dominio.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Dominio.Core.dll": {}
+        }
       }
     }
   },
@@ -13699,10 +13722,21 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "Application.Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Application.Services.csproj",
+      "msbuildProject": "../Services/Application.Services.csproj"
+    },
+    "Dominio.Core/1.0.0": {
+      "type": "project",
+      "path": "../Dominio.Core/Dominio.Core.csproj",
+      "msbuildProject": "../Dominio.Core/Dominio.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Application.Services >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.3",
       "Microsoft.AspNetCore.SignalR >= 1.0.0-alpha2-final",
       "Microsoft.AspNetCore.SignalR.Client >= 1.0.0-alpha2-final",
@@ -13720,9 +13754,9 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\SignalR\\SignalR\\ChatWithSignalR\\ChatWithSignalR.csproj",
-      "projectName": "ChatWithSignalR",
-      "projectPath": "C:\\Projetos\\SignalR\\SignalR\\ChatWithSignalR\\ChatWithSignalR.csproj",
+      "projectUniqueName": "C:\\Projetos\\SignalR\\SignalR\\ChatWithSignalR\\SignalRSample.csproj",
+      "projectName": "SignalRSample",
+      "projectPath": "C:\\Projetos\\SignalR\\SignalR\\ChatWithSignalR\\SignalRSample.csproj",
       "packagesPath": "C:\\Users\\int2\\.nuget\\packages\\",
       "outputPath": "C:\\Projetos\\SignalR\\SignalR\\ChatWithSignalR\\obj\\",
       "projectStyle": "PackageReference",
@@ -13742,7 +13776,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projetos\\SignalR\\SignalR\\Services\\Application.Services.csproj": {
+              "projectPath": "C:\\Projetos\\SignalR\\SignalR\\Services\\Application.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

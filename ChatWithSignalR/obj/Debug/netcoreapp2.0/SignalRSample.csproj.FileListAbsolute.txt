@@ -1,0 +1,15 @@
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\SignalRSample.deps.json
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\SignalRSample.runtimeconfig.json
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\SignalRSample.runtimeconfig.dev.json
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\SignalRSample.dll
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\SignalRSample.pdb
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\Application.Services.dll
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\Dominio.Core.dll
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\Application.Services.pdb
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\bin\Debug\netcoreapp2.0\Dominio.Core.pdb
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\SignalRSample.csprojResolveAssemblyReference.cache
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\SignalRSample.csproj.CoreCompileInputs.cache
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\SignalRSample.AssemblyInfoInputs.cache
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\SignalRSample.AssemblyInfo.cs
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\SignalRSample.dll
+C:\Projetos\SignalR\SignalR\ChatWithSignalR\obj\Debug\netcoreapp2.0\SignalRSample.pdb

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
-namespace ChatWithSignalR.Hubs
+namespace SignalRSample.Hubs
 {
     public class Notification : Hub
     {

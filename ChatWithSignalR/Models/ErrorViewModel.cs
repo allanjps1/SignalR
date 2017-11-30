@@ -1,6 +1,6 @@
 using System;
 
-namespace ChatWithSignalR.Models
+namespace SignalRSample.Models
 {
     public class ErrorViewModel
     {

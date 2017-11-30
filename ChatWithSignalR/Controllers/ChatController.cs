@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ChatWithSignalR.Controllers
+namespace SignalRSample.Controllers
 {
     public class ChatController : Controller
     {

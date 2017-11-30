@@ -19,4 +19,8 @@
     <Folder Include="wwwroot\lib\signalR\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Application.Services.csproj" />
+  </ItemGroup>
+
 </Project>

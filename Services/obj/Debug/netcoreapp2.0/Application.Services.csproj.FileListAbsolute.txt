@@ -1,0 +1,11 @@
+C:\Projetos\SignalR\SignalR\Services\bin\Debug\netcoreapp2.0\Application.Services.deps.json
+C:\Projetos\SignalR\SignalR\Services\bin\Debug\netcoreapp2.0\Application.Services.dll
+C:\Projetos\SignalR\SignalR\Services\bin\Debug\netcoreapp2.0\Application.Services.pdb
+C:\Projetos\SignalR\SignalR\Services\bin\Debug\netcoreapp2.0\Dominio.Core.dll
+C:\Projetos\SignalR\SignalR\Services\bin\Debug\netcoreapp2.0\Dominio.Core.pdb
+C:\Projetos\SignalR\SignalR\Services\obj\Debug\netcoreapp2.0\Application.Services.csprojResolveAssemblyReference.cache
+C:\Projetos\SignalR\SignalR\Services\obj\Debug\netcoreapp2.0\Application.Services.csproj.CoreCompileInputs.cache
+C:\Projetos\SignalR\SignalR\Services\obj\Debug\netcoreapp2.0\Application.Services.AssemblyInfoInputs.cache
+C:\Projetos\SignalR\SignalR\Services\obj\Debug\netcoreapp2.0\Application.Services.AssemblyInfo.cs
+C:\Projetos\SignalR\SignalR\Services\obj\Debug\netcoreapp2.0\Application.Services.dll
+C:\Projetos\SignalR\SignalR\Services\obj\Debug\netcoreapp2.0\Application.Services.pdb

@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ChatWithSignalR.Models;
+using SignalRSample.Models;
 
-namespace ChatWithSignalR.Controllers
+namespace SignalRSample.Controllers
 {
     public class HomeController : Controller
     {

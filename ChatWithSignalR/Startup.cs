@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Application.Services.Interface;
+using Application.Services.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ChatWithSignalR.Hubs;
+using SignalRSample.Hubs;
 
-namespace ChatWithSignalR
+namespace SignalRSample
 {
     public class Startup
     {
@@ -22,6 +20,7 @@ namespace ChatWithSignalR
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IUserService, UserService>();
             services.AddSignalR();
             services.AddMvc();
         }
@@ -45,6 +44,7 @@ namespace ChatWithSignalR
             {
                 routes.MapHub<Chat>("chatHub");
                 routes.MapHub<Notification>("notifications");
+                routes.MapHub<MultiUserHub>("multiUsers");
             });
 
             app.UseMvc(routes =>

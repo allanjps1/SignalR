@@ -1,9 +1,9 @@
-﻿using ChatWithSignalR.Models;
+﻿using SignalRSample.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
-namespace ChatWithSignalR.Hubs
+namespace SignalRSample.Hubs
 {
     public class Chat : Hub
     {
