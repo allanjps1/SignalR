@@ -7,3 +7,12 @@ C:\Projetos\SignalR\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.As
 C:\Projetos\SignalR\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.AssemblyInfo.cs
 C:\Projetos\SignalR\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.dll
 C:\Projetos\SignalR\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.pdb
+C:\Projetos\SignalR\Dominio.Core\bin\Debug\netcoreapp2.0\Dominio.Core.deps.json
+C:\Projetos\SignalR\Dominio.Core\bin\Debug\netcoreapp2.0\Dominio.Core.dll
+C:\Projetos\SignalR\Dominio.Core\bin\Debug\netcoreapp2.0\Dominio.Core.pdb
+C:\Projetos\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.csprojResolveAssemblyReference.cache
+C:\Projetos\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.csproj.CoreCompileInputs.cache
+C:\Projetos\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.AssemblyInfoInputs.cache
+C:\Projetos\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.AssemblyInfo.cs
+C:\Projetos\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.dll
+C:\Projetos\SignalR\Dominio.Core\obj\Debug\netcoreapp2.0\Dominio.Core.pdb

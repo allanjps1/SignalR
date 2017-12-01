@@ -20,11 +20,6 @@ namespace SignalRSample.Hubs
 
         public override Task OnConnectedAsync()
         {
-            User us = new User();
-            us.ConnectionID = Context.ConnectionId;
-
-            _userService.AddConectedUser(us);
-
             return base.OnConnectedAsync();
         }
 
@@ -33,8 +28,12 @@ namespace SignalRSample.Hubs
             await Clients.All.InvokeAsync("SendMessage", mensagem);
         }
 
-        public async Task UsersList()
+        public async Task LogIn(User user)
         {
+            user.ConnectionID = Context.ConnectionId;
+
+            _userService.AddConectedUser(user);
+
             List<User> users = _userService.GetConnectedUsers();
 
             await Clients.All.InvokeAsync("UsersList", users);

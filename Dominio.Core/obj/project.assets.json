@@ -664,7 +664,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\int2\\.nuget\\packages\\": {},
+    "C:\\Users\\rober\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -673,17 +673,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\SignalR\\SignalR\\Dominio.Core\\Dominio.Core.csproj",
+      "projectUniqueName": "C:\\Projetos\\SignalR\\Dominio.Core\\Dominio.Core.csproj",
       "projectName": "Dominio.Core",
-      "projectPath": "C:\\Projetos\\SignalR\\SignalR\\Dominio.Core\\Dominio.Core.csproj",
-      "packagesPath": "C:\\Users\\int2\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\SignalR\\SignalR\\Dominio.Core\\obj\\",
+      "projectPath": "C:\\Projetos\\SignalR\\Dominio.Core\\Dominio.Core.csproj",
+      "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\SignalR\\Dominio.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\int2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

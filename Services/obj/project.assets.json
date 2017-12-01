@@ -680,7 +680,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\int2\\.nuget\\packages\\": {},
+    "C:\\Users\\rober\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -689,17 +689,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\SignalR\\SignalR\\Services\\Application.Services.csproj",
+      "projectUniqueName": "C:\\Projetos\\SignalR\\Services\\Application.Services.csproj",
       "projectName": "Application.Services",
-      "projectPath": "C:\\Projetos\\SignalR\\SignalR\\Services\\Application.Services.csproj",
-      "packagesPath": "C:\\Users\\int2\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\SignalR\\SignalR\\Services\\obj\\",
+      "projectPath": "C:\\Projetos\\SignalR\\Services\\Application.Services.csproj",
+      "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\SignalR\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\int2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -712,8 +712,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Projetos\\SignalR\\SignalR\\Dominio.Core\\Dominio.Core.csproj": {
-              "projectPath": "C:\\Projetos\\SignalR\\SignalR\\Dominio.Core\\Dominio.Core.csproj"
+            "C:\\Projetos\\SignalR\\Dominio.Core\\Dominio.Core.csproj": {
+              "projectPath": "C:\\Projetos\\SignalR\\Dominio.Core\\Dominio.Core.csproj"
             }
           }
         }

@@ -16,9 +16,7 @@ namespace SignalRSample.Controllers
 
         public IActionResult Index()
         {
-            List<User> usersList = _userService.GetConnectedUsers();
-
-            return View(usersList);
+            return View();
         }
     }
 }
