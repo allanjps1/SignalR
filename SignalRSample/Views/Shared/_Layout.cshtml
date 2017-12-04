@@ -15,6 +15,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @RenderSection("Css", required: false)
+
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -26,14 +29,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ChatWithSignalR</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Samples SignalR</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Chat" asp-action="Index">Chat</a></li>
+                    <li><a asp-area="" asp-controller="Chat" asp-action="Index">Simple Chat Sample</a></li>
                     <li><a asp-area="" asp-controller="Notification" asp-action="Index">Notification</a></li>
-                    <li><a asp-area="" asp-controller="MultiUser" asp-action="Index">MultiUser</a></li>
+                    <li><a asp-area="" asp-controller="MultiUser" asp-action="Index">Specific User Sample</a></li>
                 </ul>
             </div>
         </div>

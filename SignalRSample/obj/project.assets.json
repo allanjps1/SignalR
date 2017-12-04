@@ -13754,11 +13754,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\SignalR\\ChatWithSignalR\\SignalRSample.csproj",
+      "projectUniqueName": "C:\\Projetos\\SignalR\\SignalRSample\\SignalRSample.csproj",
       "projectName": "SignalRSample",
-      "projectPath": "C:\\Projetos\\SignalR\\ChatWithSignalR\\SignalRSample.csproj",
+      "projectPath": "C:\\Projetos\\SignalR\\SignalRSample\\SignalRSample.csproj",
       "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\SignalR\\ChatWithSignalR\\obj\\",
+      "outputPath": "C:\\Projetos\\SignalR\\SignalRSample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,0 +1,200 @@
+﻿@section Css {
+    <link href="~/css/chat.css" rel="stylesheet" />
+
+}
+<input type="hidden" id="toUserId" />
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="http://icons.iconarchive.com/icons/mattahan/ultrabuuf/256/TV-Smith-icon.png" class="img-circle img-responsive" />
+                    </div>
+                    <div class="col-md-1">
+                        <label>João da Silva</label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <p>Boa tarde!</p>
+                <p>Estou com problemas ao acessar a tela de relatorios</p>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12 col-xs-8">
+                <div id="chat">
+                    <form id="frm-send-message" action="#">
+                        <!--CHAT BODY -->
+                        <div class="chatbody">
+                            <div class="panel panel-primary">
+                                <!--CHAT CONTAINER BODY -->
+                                <div class="panel-body msg_container_base" id="messages">
+                                    <!--CHAT MESSAGES WILL BE HERE -->
+                                </div>
+                                <div class="panel-footer" id="sendArea">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm" id="message" placeholder="Write your message here..." />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary btn-sm" id="send"><i class="fa fa-send fa-1x" aria-hidden="true"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/signalR/signalr-client-1.0.0-alpha2-final.js"></script>
+
+<script>
+
+    // Connection Settings with Hub
+    let transportType = signalR.TransportType.WebSockets;
+    // Route Hub name defined in Startup
+    let http = new signalR.HttpConnection(`multiUsers`, { transport: transportType });
+    let connection = new signalR.HubConnection(http);
+
+    $(document).ready(function () {
+        // Start the connection with Hub
+        // Then connection start ends invoke UsersList
+        connection.start().catch(err => console.log(err))
+            .then(() => {
+
+                let con = connection.connection;
+
+                // Recupera os dados da tela
+                let user = {
+                    ConnectionID: con.connectionId,
+                    Nick: $("#nomeUsuario").val()
+                }
+
+                connection.invoke("LogIn", user)
+            });
+    });
+
+    // Every time when SendMessage is executed do something
+    // data = object send to back-end
+    // WHen the method SendMessage is invoked do something
+    connection.on('SendMessageChamado', (data) => {
+        receiveMessage(data.mensagemTexto);
+    });
+
+    // Every time when SendMessage is executed do something
+    // data = object send to back-end
+    // WHen the method SendMessage is invoked do something
+    connection.on('UsersList', (data) => {
+        addConnectedUser(data);
+    });
+
+    document.getElementById('frm-send-message').addEventListener('submit', event => {
+
+        // Recupera os dados da tela
+        let mensagem = {
+            NomeUsuario: $("#nomeUsuario").val(),
+            MensagemTexto: $("#message").val()
+        }
+
+        // Call Hub method to send data
+        connection.invoke('SendMessageChamado', mensagem);
+
+        //Reset message input
+        document.getElementById('message').value = '';
+
+        // Add Your Self Message to Conversation
+        sentMessage(mensagem.MensagemTexto);
+
+        // Prevent Default form submit method
+        event.preventDefault();
+    });
+
+    function postMessage(data) {
+        var divMessages = $("#messages");
+
+        divMessages.append(`<p> <b>${data.nomeUsuario}</b>: ${data.mensagemTexto} </p> `);
+    };
+
+    function addConnectedUser(data) {
+
+        var listUsers = $("#UserList tbody");
+
+        listUsers.html("");
+
+        $.each(data, function (key, value) {
+
+            if ($("#nomeUsuario").val() != value.nick) {
+
+                let html = "<tr>";
+                html += `<td class="user" data-connectionId="${value.connectionID}">${value.nick} </td>`;
+                html += "</tr>";
+
+                listUsers.append(html);
+            }
+        });
+
+        bindUserListClick();
+    }
+
+    function bindUserListClick() {
+
+        var tableRow = $("#UserList tbody tr");
+
+        $("#UserList tbody tr").unbind("click");
+
+        $("#UserList tbody tr").bind("click", function (e) {
+
+            let listItem = $(e.target);
+
+            let id = listItem.data("connectionid");
+
+            $("#toUserId").val(id);
+        })
+    }
+
+    function sentMessage(text) {
+        let htmlSent = '<div class="row msg_container base_sent">';
+        htmlSent += '<div class="col-md-10 col-xs-10">';
+        htmlSent += '<div class="messages msg_sent">';
+        htmlSent += "<p>";
+        htmlSent += text;
+        htmlSent += "</p>";
+        htmlSent += "</div>";
+        htmlSent += "</div>";
+        htmlSent += '<div class="col-md-2 col-xs-2 avatar">'
+        htmlSent += '<img src="https://image.flaticon.com/icons/svg/149/149071.svg" class=" img-responsive ">';
+        htmlSent += '</div>';
+        htmlSent += "</div>";
+
+        $("#messages").append(htmlSent);
+    }
+
+    function receiveMessage(text) {
+        let htmlSent = '<div class="row msg_container base_receive">';
+        htmlSent += '<div class="col-md-2 col-xs-2 avatar">'
+        htmlSent += '<img src="https://image.flaticon.com/icons/svg/149/149071.svg" class=" img-responsive ">';
+        htmlSent += '</div>';
+        htmlSent += '<div class="col-md-10 col-xs-10">';
+        htmlSent += '<div class="messages msg_receive">';
+        htmlSent += "<p>";
+        htmlSent += text;
+        htmlSent += "</p>";
+        htmlSent += "</div>";
+        htmlSent += "</div>";
+        htmlSent += "</div>";
+
+        $("#messages").append(htmlSent);
+    }
+
+    $("#chat-title").click(() => {
+
+        $("#messages").toggle();
+        $("#sendArea").toggle();
+    })
+</script>

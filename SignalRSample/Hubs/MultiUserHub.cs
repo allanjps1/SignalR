@@ -1,5 +1,6 @@
 ﻿using Application.Services.Interface;
 using Dominio.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using SignalRSample.Models;
 using System;
@@ -9,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace SignalRSample.Hubs
 {
+    [Authorize]
     public class MultiUserHub : Hub
     {
+        private readonly static ConnectionMapping<string> _connections =
+            new ConnectionMapping<string>();
+
         IUserService _userService;
 
         public MultiUserHub(IUserService userService)
@@ -23,9 +28,16 @@ namespace SignalRSample.Hubs
             return base.OnConnectedAsync();
         }
 
-        public async Task SendMessage(Mensagem mensagem)
+        public async Task SendMessage(Mensagem mensagem, String clientId)
         {
-            await Clients.All.InvokeAsync("SendMessage", mensagem);
+            await Clients.Client(clientId).InvokeAsync("SendMessage", mensagem);
+        }
+
+        public async Task SendMessageChamado(Mensagem mensagem)
+        {
+            IReadOnlyList<string> lista = new List<String>() { Context.ConnectionId };
+
+            await Clients.AllExcept(lista).InvokeAsync("SendMessageChamado", mensagem);
         }
 
         public async Task LogIn(User user)
@@ -38,5 +50,13 @@ namespace SignalRSample.Hubs
 
             await Clients.All.InvokeAsync("UsersList", users);
         }
+
+
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+            return base.OnDisconnectedAsync(exception);
+        }
+
+        
     }
 }

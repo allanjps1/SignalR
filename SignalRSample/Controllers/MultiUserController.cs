@@ -18,5 +18,10 @@ namespace SignalRSample.Controllers
         {
             return View();
         }
+
+        public IActionResult Chamado()
+        {
+            return View();
+        }
     }
 }
