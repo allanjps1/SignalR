@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "UsersQueue";
+}
+<h2>UsersQueue</h2>
+
+<button class="btn btn-primary" value="Enter" id="btnEnter">Entrar na fila <span class="badge">42</span></button>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/signalR/signalr-client-1.0.0-alpha2-final.js"></script>
+
+
+<script>
+    // Connection Settings with Hub
+    let transportType = signalR.TransportType.WebSockets;
+    // Route Hub name defined in Startup
+    let http = new signalR.HttpConnection(`multiUsers`, { transport: transportType });
+    let connection = new signalR.HubConnection(http);
+
+    $("#btnEnter").click(() => {
+
+        var podeConectar = conexaoPermitida();
+
+        debugger;
+
+        if (podeConectar) {
+            conectarAoHub();
+        }
+        else { 
+            adicionarUsuarioAFilaDeEspera();
+        }
+    })
+
+    function conectarAoHub() {
+        connection.start()
+            .then(() => {
+                connection.invoke("AddConnectedUser");
+            });
+    }
+
+    function conexaoPermitida() {
+
+        var ok = false;
+
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            async: false,
+            url: '/MultiUser/PossuiVagas/',
+            success: function (result) {
+                ok = result;
+            },
+            error: function (result) {
+                alert("Ocorreu um erro!");
+            },
+        });
+
+        return ok;
+    }
+
+
+    $(window).on('beforeunload', function () {
+
+        let con = connection.connection;
+
+        connection.invoke("DisconectUser", con.connectionId);
+    });
+
+    function adicionarUsuarioAFilaDeEspera()
+    {
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            async: false,
+            url: '/MultiUser/AdicionarAFilaDeEspera/',
+            success: function (result) {
+                console.log("adicionado a fila de espera");
+            },
+            error: function (result) {
+                alert("Ocorreu um erro!");
+            },
+        });
+
+    }
+
+</script>

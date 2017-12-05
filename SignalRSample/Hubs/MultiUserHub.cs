@@ -5,22 +5,19 @@ using Microsoft.AspNetCore.SignalR;
 using SignalRSample.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SignalRSample.Hubs
 {
-    [Authorize]
     public class MultiUserHub : Hub
     {
-        private readonly static ConnectionMapping<string> _connections =
-            new ConnectionMapping<string>();
-
         IUserService _userService;
 
         public MultiUserHub(IUserService userService)
         {
             _userService = userService;
+
+            
         }
 
         public override Task OnConnectedAsync()
@@ -51,12 +48,26 @@ namespace SignalRSample.Hubs
             await Clients.All.InvokeAsync("UsersList", users);
         }
 
+        public void AddConnectedUser()
+        {
+            User newuser = new User();
+            newuser.ConnectionID = Context.ConnectionId;
+            newuser.Nick = Context.Connection.User.Identity.Name;
+
+            _userService.AddConectedUser(newuser);
+        }
+
+        public void DisconectUser(String connectionId)
+        {
+            _userService.RemoveConectedUser(connectionId);
+
+            Context.Connection.Abort();
+        }
 
         public override Task OnDisconnectedAsync(Exception exception)
         {
             return base.OnDisconnectedAsync(exception);
         }
-
         
     }
 }

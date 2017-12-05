@@ -9,10 +9,12 @@ namespace Application.Services.Service
     public class UserService : IUserService
     {
         public List<User> ConnectedUsers { get; private set; }
+        public List<User> QueueUsers { get; private set; }
 
         public UserService()
         {
-            this.ConnectedUsers = new List<User>();
+            ConnectedUsers = new List<User>();
+            QueueUsers = new List<User>();
         }
 
         public void AddConectedUser(User user)
@@ -20,14 +22,31 @@ namespace Application.Services.Service
             ConnectedUsers.Add(user);
         }
 
-        public void RemoveConectedUser(User user)
+        public void RemoveConectedUser(string connectionId)
         {
-            ConnectedUsers.Add(user);
+            var usertoremove = ConnectedUsers.Find(x => x.ConnectionID == connectionId);
+
+            ConnectedUsers.Remove(usertoremove);
         }
 
         public List<User> GetConnectedUsers()
         {
             return ConnectedUsers;
+        }
+
+        public int GetUsersCount()
+        {
+            return ConnectedUsers.Count;
+        }
+
+        public void AddUserToQueue(User user)
+        {
+            QueueUsers.Add(user);
+        }
+
+        public int UserQueuePosition(User user)
+        {
+            return QueueUsers.FindIndex(x => x.Nick == user.Nick);
         }
     }
 }
